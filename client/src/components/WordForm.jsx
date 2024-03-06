@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const WordForm = ({ ButtonTxt }) => {
   const inputFields = [
     {
@@ -44,6 +46,10 @@ const WordForm = ({ ButtonTxt }) => {
       </form>
     </div>
   );
+};
+
+WordForm.propTypes = {
+  ButtonTxt: PropTypes.string,
 };
 
 export default WordForm;
