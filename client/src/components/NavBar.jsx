@@ -1,27 +1,30 @@
-import logo from "../assets/icons/logo-white.svg";
+import logo from "../assets/icons/word-white.svg";
 import { navlinks } from "../utils/constants";
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
   return (
-    <nav className="h-full w-20 bg-secondary rounded-tr-[20px] rounded-br-[20px] flex flex-col justify-between py-4 items-center">
-      <div>
-        <div className="logo">
-          <img src={logo} alt="logo" className="h-12 w-12" />
-        </div>
+    <nav className="h-20 w-full bg-secondary flex justify-between px-4 items-center">
+      <div className="flex gap-2 flex-center">
+        <img src={logo} alt="logo" className="h-10 w-10" />
+        <p className="font-bold text-2xl">Word Bank</p>
       </div>
+
       <div>
-        <ul>
+        <ul className="flex gap-4 items-center">
           {navlinks.map((link) => {
             return (
-              <li key={link.id} className="h-10 w-10">
-                <a href={link.href}>
-                  <img src={link.icon} alt={link.name} />
-                </a>
+              <li
+                key={link.id}
+                className="text-xl font-medium hover:border-b-2 border-white"
+              >
+                <Link to={link.href}>{link.name}</Link>
               </li>
             );
           })}
         </ul>
       </div>
-      <div>Profile</div>
+      <div> </div>
     </nav>
   );
 };
