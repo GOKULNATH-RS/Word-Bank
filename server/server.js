@@ -18,10 +18,7 @@ app.listen(port, () => {
 
 const connectToDB = async () => {
   try {
-    const url =
-      "mongodb+srv://gokulnath:1234@cluster0.ooabilw.mongodb.net/WordBank?retryWrites=true&w=majority&appName=Cluster0";
-
-    await mongoose.connect(url);
+    await mongoose.connect(process.env.MONGO_URL);
     console.log("Connected to MongoDB");
   } catch (error) {
     console.log("Error connecting to MongoDB", error);
